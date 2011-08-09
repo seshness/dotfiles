@@ -2,11 +2,16 @@
     editor = emacs
     pager = less
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
-    eol = lf    
+    eol = lf
+    excludesfile = .gitignore
+
+[commit]
+    template = /Users/seshadri/.emacs.d/languages/git-commit-template.txt
 
 [user]
-	name = Seshadri Mahalingam
-	email = seshadri@berkeley.edu
+    name = Seshadri Mahalingam
+    email = seshadri@berkeley.edu
+
 [color]
     diff = auto
     status = auto
@@ -14,7 +19,7 @@
     interactive = auto
     ui = true
     pager = true
-        
+
 [color "branch"]
     current = yellow reverse
     local = yellow
@@ -34,10 +39,13 @@
 [alias]
     br = branch
     co = checkout
-	st = status
+    st = status
     ci = commit
     ca = commit -a
     amend = commit --amend
+    ri = rebase --interactive --autosquash
+    ac = commit --amend -C HEAD -a
+    pr = pull --rebase
 
     w = whatchanged
     l = log
