@@ -62,5 +62,6 @@
     dsc = diff --stat --cached
     sr = svn rebase
     sd = svn dcommit
+    sf = svn fetch
 
     searchcommits = "!f() { query=\"$1\"; shift; git log -S\"$query\" \"$@\"; }; f \"$@\""
