@@ -1,4 +1,9 @@
 *~
+\#*#
+*.class
+*.pdf
+*.aux
+*.log
 *.swp
 .~lock.*#
 .backup/

@@ -6,7 +6,7 @@
     excludesfile = .gitignore
 
 [commit]
-    template = /Users/seshadri/.emacs.d/languages/git-commit-template.txt
+    template = git-commit-template.txt
 
 [user]
     name = Seshadri Mahalingam
