@@ -65,3 +65,7 @@
     sf = svn fetch
 
     searchcommits = "!f() { query=\"$1\"; shift; git log -S\"$query\" \"$@\"; }; f \"$@\""
+    pub = "!f() { git push -u ${1:-origin} `git symbolic-ref HEAD`; }; f"
+
+[push]
+    default = current
