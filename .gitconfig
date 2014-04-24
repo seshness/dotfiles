@@ -53,8 +53,11 @@
     lt = log --topo-order
     gl = log --graph
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-
+    lgs = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --decorate -n10
+    lga = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --decorate --all
+    lgas = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --decorate -n10 --all
     com = checkout master
+    cod = checkout dev
 
     d = diff
     dc = diff --cached
@@ -64,8 +67,22 @@
     sd = svn dcommit
     sf = svn fetch
 
+    amendfast = commit --amend -a -C HEAD
+    af = commit --amend -a -C HEAD
+
+    rbc = rebase --continue
+    rbs = rebase --skip
+    rba = rebase --abort
+
     searchcommits = "!f() { query=\"$1\"; shift; git log -S\"$query\" \"$@\"; }; f \"$@\""
     pub = "!f() { git push -u ${1:-origin} `git symbolic-ref HEAD`; }; f"
 
+    meld = difftool --no-prompt
+    tree = log --graph --all --abbrev-commit --decorate --pretty=oneline
+    tre = log --graph --all --abbrev-commit --decorate --pretty=oneline -n10
+    recent = "for-each-ref --sort=-committerdate --format '%1B[0;32m%(objectname:short)%1B[m%09%1B[0;33m%(committerdate)%1B[m%09%1B[0;35m%(refname:short)%1B[m%09%(contents:subject)%09%(upstream)' refs/heads/sesh/ --count 20"
+    logbranch = "for-each-ref --sort=-committerdate refs/heads/ --format='[%1B[0;31m]%(refname:short)[%1B[m]   %(subject)' "
+
+
 [push]
-    default = current
+	default = current
